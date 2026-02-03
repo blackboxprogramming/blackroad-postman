@@ -1,0 +1,55 @@
+{
+  "info": {
+    "name": "BlackRoad API",
+    "version": "1.0.0",
+    "description": "Complete BlackRoad API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Verify API Key",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{apiKey}}"}],
+            "url": {"raw": "{{baseUrl}}/auth/verify", "host": ["{{baseUrl}}"], "path": ["auth", "verify"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Deployments",
+      "item": [
+        {
+          "name": "List Deployments",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{apiKey}}"}],
+            "url": {"raw": "{{baseUrl}}/deployments", "host": ["{{baseUrl}}"], "path": ["deployments"]}
+          }
+        },
+        {
+          "name": "Create Deployment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{apiKey}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\\n  \\"name\\": \\"my-app\\",\\n  \\"source\\": \\"github.com/user/repo\\"\\n}"
+            },
+            "url": {"raw": "{{baseUrl}}/deployments", "host": ["{{baseUrl}}"], "path": ["deployments"]}
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "https://api.blackroad.io/v1"},
+    {"key": "apiKey", "value": ""}
+  ]
+}
